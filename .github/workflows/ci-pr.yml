@@ -44,3 +44,4 @@ jobs:
       - name: Build backend (Release)
         run: dotnet build -c Release
         working-directory: ./backend
+        
