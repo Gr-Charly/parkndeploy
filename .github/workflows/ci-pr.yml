@@ -23,7 +23,8 @@ jobs:
 
   backend:
     name: Backend - build
-    runs-on: production
+    runs-on: ubuntu-latest
+    environment: production
 
     steps:
       - name: Checkout repository
@@ -38,7 +39,3 @@ jobs:
         run: dotnet build -c Release
         working-directory: ./backend
 
-
-
-
-        
