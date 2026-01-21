@@ -78,11 +78,12 @@ jobs:
       id: bicep_deploy
       uses: azure/arm-deploy@v2
       with:
-        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         region: ${{ secrets.AZURE_REGION }}
         template: ./infrastructure/main.bicep
         parameters: project=${{ vars.PROJECT_NAME }} location=${{ secrets.AZURE_REGION }} swaLocation=${{ secrets.AZURE_SWA_REGION }} identifier=${{ vars.AZURE_RESOURCE_IDENTIFIER }}
-        resourceGroupName: ${{ env.AZURE_RG_NAME }}
+        resourceGroupName: rg-${{ vars.PROJECT_NAME }}-${{ vars.AZURE_RESOURCE_IDENTIFIER }}
+
         
   deploy_backend:
     runs-on: ubuntu-latest
