@@ -74,11 +74,6 @@ jobs:
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         enable-AzPSSession: true 
 
-    - name: Create resource group if not exists      
-      run: |
-        az group show --name ${{ env.AZURE_RG_NAME }} ||
-        az group create --name ${{ env.AZURE_RG_NAME }} --location ${{ secrets.AZURE_REGION }}
-
     - name: Deploy bicep
       id: bicep_deploy
       uses: azure/arm-deploy@v2
